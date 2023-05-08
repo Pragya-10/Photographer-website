@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  photographer_website:
+    build: .
+    image: photographer_website
+    container_name: photographer_website_container
+    ports:
+      - "80:80"
+    volumes:
+      - ./Photographer-website:/var/www/html/
+    command: bash -c "apt-get update && apt-get install nginx -y && service nginx start"
